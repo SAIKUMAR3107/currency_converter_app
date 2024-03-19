@@ -1,8 +1,20 @@
 # currency_converter_app
 
-A new Flutter project.
+A new Flutter project on currency converting from one country type to another country type.
 
-## Getting Started
+## Resources
+Tools : 
+1) Android Studio.
+   
+Technologies : 
+1) Dart Programming Language.
+2) REST API(Using Open Exchange rates free api)
+3) Third party Libraries are http from network call, Equatable for comaparing object in bloc pattern and Flutter_bloc for architectural pattern.
+
+## Overview
+The Aim of the project is to find the current currency rate difference between two countries and we can choose the country from the give list
+
+### Getting Started
 
 This project is a starting point for a Flutter application.
 
