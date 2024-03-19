@@ -41,6 +41,8 @@ class _HomeScreenState extends State<HomeScreen> {
         ),
         body: BlocBuilder<CurrencyBloc, CurrencyState>(
           builder: (context, state) {
+
+            //This state will be executed when the state object in in Loading state
             if (state is CurrencyLoadingState) {
               return Container(
                 height: MediaQuery.of(context).size.height,
@@ -54,6 +56,7 @@ class _HomeScreenState extends State<HomeScreen> {
               );
             }
 
+            // This state will be executed when the state of the object is loaded with data and return the widget with given state data
             if (state is CurrencyLoadedState) {
               LatestCurrency currency = state.currency;
               List<String> code = state.countryCode;
@@ -346,6 +349,18 @@ class _HomeScreenState extends State<HomeScreen> {
                       )
                     ],
                   ),
+                ),
+              );
+            }
+
+            //This state will be exicuted when the state of the object is facing an error
+            if(state is CurrencyErrorState) {
+              return Container(
+                height: MediaQuery.of(context).size.height,
+                width: MediaQuery.of(context).size.width,
+                decoration: BoxDecoration(image: DecorationImage(image: AssetImage("assets/background.jpg"),fit: BoxFit.fill)),
+                child: Center(
+                  child: Text(state.error)
                 ),
               );
             }
