@@ -1,4 +1,4 @@
-import 'package:currency_converter_app/splash_screen.dart';
+import 'package:currency_converter_app/screens/splash_screen.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -22,4 +22,3 @@ class MyApp extends StatelessWidget {
     );
   }
 }
-
