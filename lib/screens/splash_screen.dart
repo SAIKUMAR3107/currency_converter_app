@@ -18,7 +18,7 @@ class _SplashScreenState extends State<SplashScreen> {
   @override
   void initState() {
     super.initState();
-    Timer(Duration(seconds: 5), () {
+    Timer(Duration(seconds: 4), () {
       Navigator.pushReplacement(
           context,
           MaterialPageRoute(
@@ -37,12 +37,24 @@ class _SplashScreenState extends State<SplashScreen> {
         height: double.infinity,
         width: double.infinity,
         color: Colors.black,
-        child: Center(
-          child: Icon(
-            CupertinoIcons.money_dollar,
-            size: 100,
-            color: Colors.white,
-          ),
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            ClipRRect(
+                borderRadius: BorderRadius.circular(25),
+                child: Image.asset(
+                  "assets/currency_icon.png",
+                  height: 60,
+                  width: 60,
+                )),
+            SizedBox(
+              height: 10,
+            ),
+            Text(
+              "Currency Converter",
+              style: TextStyle(color: Colors.white),
+            )
+          ],
         ),
       ),
     );
