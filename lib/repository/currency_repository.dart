@@ -9,14 +9,15 @@ class CurrencyRepository {
   String? dropdownFirstType;
   String? dropdownSecondType;
 
-  Future<LatestCurrency> getCurrency() async {
-    var response = await http.Client().get(Uri.parse(
+  Future<LatestCurrency> getCurrency(http.Client http) async {
+    var response = await http.get(Uri.parse(
         "https://openexchangerates.org/api/latest.json?app_id=" + apiId));
     if (response.statusCode == 200) {
       LatestCurrency result = latestCurrencyFromJson(response.body);
       return result;
     } else {
       throw Exception(response.reasonPhrase);
+
     }
   }
 
