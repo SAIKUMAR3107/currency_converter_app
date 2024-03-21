@@ -189,8 +189,12 @@ class _HomeScreenState extends State<HomeScreen> {
                                             Colors.green)),
                                     onPressed: () {
                                       setState(() {
+
+                                        // The below logic will check if the user given an input or not if data is not presented means it will enter into else block and gives you a message
                                         if(anyCurrency.text.isNotEmpty && dropdownFirstType!.isNotEmpty && dropdownSecondType!.isNotEmpty){
                                           isContainsData2 = true;
+
+                                          //Here currencyRatesFrom and CurrencyRatesTo are used to take user inputs from dropdowns
                                           var currencyRatesFrom =
                                           dropdownFirstType?.substring(
                                               dropdownFirstType!.indexOf("(") +
@@ -201,6 +205,8 @@ class _HomeScreenState extends State<HomeScreen> {
                                               dropdownSecondType!.indexOf("(") +
                                                   1,
                                               dropdownSecondType!.indexOf(")"));
+
+                                          //Logic for converting the user entered data from one currency type to another currency types
                                           var convertedValue = (double.parse(
                                               anyCurrency.text) /
                                               currency.rates[
@@ -208,6 +214,8 @@ class _HomeScreenState extends State<HomeScreen> {
                                               currency
                                                   .rates["$currencyRatesTo"]!)
                                               .toStringAsFixed(4);
+
+
                                           answer2 = anyCurrency.text.toString() +
                                               " $currencyRatesFrom = " +
                                               convertedValue +
@@ -317,6 +325,8 @@ class _HomeScreenState extends State<HomeScreen> {
                                             Colors.green)),
                                     onPressed: () {
                                       setState(() {
+
+                                        // The below logic will check if the user given an input or not if data is not presented means it will enter into else block and gives you a message
                                         if(usCurrency.text.isNotEmpty && dropdownValueForUs!.isNotEmpty){
                                           isContainsData1 = true;
                                           var rates =
