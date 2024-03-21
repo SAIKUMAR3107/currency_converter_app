@@ -12,7 +12,7 @@ Technologies :
 3) Third party Libraries are http from network call, Equatable for comaparing object in bloc pattern and Flutter_bloc for architectural pattern.
 
 ## Overview
-The Aim of the project is to find the current currency rate difference between two countries and we can choose the country from the give list
+A currency converter app helps users and businesses precisely convert currencies according to the updated rates. The best part is that it quickly processes and shows the converted amount within seconds. This helps users keep track of the constantly fluctuating rates and provides real-time results without much effort.
 
 ### Getting Started
 
