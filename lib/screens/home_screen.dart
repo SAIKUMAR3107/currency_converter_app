@@ -4,6 +4,7 @@ import 'package:currency_converter_app/blocs/app_states.dart';
 import 'package:currency_converter_app/model/currency_model.dart';
 import 'package:currency_converter_app/repository/currency_repository.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_tts/flutter_tts.dart';
 
@@ -379,15 +380,15 @@ class _HomeScreenState extends State<HomeScreen> {
               );
             }
 
-            //This state will be exicuted when the state of the object is facing an error
+            //This state will be executed when the state of the object is facing an error
             if(state is CurrencyErrorState) {
-              return Container(
-                height: MediaQuery.of(context).size.height,
-                width: MediaQuery.of(context).size.width,
-                decoration: BoxDecoration(image: DecorationImage(image: AssetImage("assets/background.jpg"),fit: BoxFit.fill)),
-                child: Center(
-                  child: Text(state.error)
-                ),
+              return AlertDialog(
+                title: Text(state.error,style: TextStyle(fontSize: 20),),
+                actions: [
+                  TextButton(onPressed: (){
+                    SystemNavigator.pop();
+                  }, child: Text("Turn on internet on restart"))
+                ],
               );
             }
             return Container();
