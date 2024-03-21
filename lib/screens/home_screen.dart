@@ -5,6 +5,7 @@ import 'package:currency_converter_app/model/currency_model.dart';
 import 'package:currency_converter_app/repository/currency_repository.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_tts/flutter_tts.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
@@ -23,6 +24,13 @@ class _HomeScreenState extends State<HomeScreen> {
   String answer2 = 'Converted Currency will be :';
   bool isContainsData1 = true;
   bool isContainsData2 = true;
+
+  Future speak(String text) async {
+    await FlutterTts().setLanguage("en-US");
+    await FlutterTts().setVolume(0.5);
+    await FlutterTts().setPitch(1);
+    await FlutterTts().speak(text);
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -204,6 +212,11 @@ class _HomeScreenState extends State<HomeScreen> {
                                               " $currencyRatesFrom = " +
                                               convertedValue +
                                               " $currencyRatesTo";
+
+                                          var currencyType1 = dropdownFirstType?.substring(0,dropdownFirstType?.indexOf("("));
+                                          var currencyType2 = dropdownSecondType?.substring(0,dropdownSecondType?.indexOf("("));
+                                          var speakText = anyCurrency.text.toString() + " $currencyType1 = " + convertedValue + " $currencyType2";
+                                          speak(speakText);
                                         }
                                         else{
                                           isContainsData2 = false;
@@ -321,6 +334,9 @@ class _HomeScreenState extends State<HomeScreen> {
                                               " USD = " +
                                               convertedValue +
                                               " $rates";
+                                          var name= dropdownValueForUs!.substring(0,dropdownValueForUs?.indexOf("("));
+                                          var speakText = usCurrency.text.toString() + " USD = " + convertedValue + name;
+                                          speak(speakText);
                                         }
                                         else{
                                           isContainsData1 = false;

@@ -38,6 +38,7 @@ dependencies:
   http:
   equatable:
   flutter_bloc:
+  flutter_tts:
 
 dev_dependencies:
   flutter_test:
